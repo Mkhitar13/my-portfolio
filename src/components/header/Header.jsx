@@ -1,19 +1,24 @@
-import "../header/header.scss";
+import styles from "../header/header.module.scss";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import AnimatedRoutes from "../animation/AnimatedRoutes";
 import Pages from "../pages/Pages";
-import { DiYeoman } from "react-icons/di";
-import { BiAnalyse } from "react-icons/bi";
-// import HamburgerMenu from "../menuForMiniDisplay/hamburgerMenu/HamburgerMenu";
-import ButtonOfHeader from "../menuButton/MenuButton";
+import { GiShinyOmega } from "react-icons/gi";
+import { GiSunRadiations } from "react-icons/gi";
+import ButtonOfMiniNav from "../menuForMiniDisplay/buttonOfMiniNav/ButtonOfMiniNav";
+import MainOfMiniMenu from "../menuForMiniDisplay/mainOfMiniMenu/MainOfMiniMenu";
 
 const Header = () => {
 
       const [isShown, setIsShown] = useState(false);
+      const [isShownMiniMenu, setIsShownMiniMenu] = useState(false);
 
       const handleClick = () => {
             setIsShown(current => !current);
+      };
+
+      const toggleMiniMenu = () => {
+            setIsShownMiniMenu(!isShownMiniMenu);
       };
 
       useEffect(() => {
@@ -22,52 +27,55 @@ const Header = () => {
 
       return (
             <Router>
-                  <div id="headerContainer">
-                        <header id="header">
-                              <div id="headerIconContainer">
-                                    <div id="icon"><DiYeoman size="35px" color="#2460AA" /></div>
-                                    <div id="textByIcon">M13</div>
+                  <div id={styles.headerContainer}>
+                        <header id={styles.header}>
+                              <div id={styles.headerIconContainer}>
+                                    <div id={styles.icon}><GiShinyOmega size="35px" color="#2166FF" /></div>
+                                    <div id={styles.textByIcon}>SUN</div>
                               </div>
                               <nav>
-                                    <div id="linkContainer">
+                                    <div className={styles.linkContainer}>
                                           <Link to="/Home">Home</Link>
                                     </div>
-                                    <div id="linkContainer">
+                                    <div className={styles.linkContainer}>
                                           <Link to="/about">About</Link>
                                     </div>
-                                    <div id="linkContainer">
+                                    <div className={styles.linkContainer}>
                                           <Link to="/blog">Blog</Link>
                                     </div>
-                                    <div id="linkContainer" className="pages" >
+                                    <div className={styles.linkContainer} id={styles.pages} >
                                           <Link onMouseOver={() => handleClick()}>Pages</Link>
-                                          <span id="iconForPages"><BiAnalyse color="#2460AA" size="25px" /></span>
+                                          <span id={styles.iconForPages}><GiSunRadiations color="#2166FF" size="25px" /></span>
 
                                     </div>
-                                    <div id="linkContainer">
+                                    <div className={styles.linkContainer}>
                                           <Link to="/services">Services</Link>
                                     </div>
-                                    <div id="linkContainer">
+                                    <div className={styles.linkContainer}>
                                           <Link to="/cart">Cart</Link>
                                     </div>
                               </nav>
-                              <div id="headerButtonAndMiniButtonOfMenuAndCartSection">
-                                    <div id="cartSectionForMiniDisplay">
+                              <div id={styles.headerButtonAndMiniButtonOfMenuAndCartSection}>
+
+                                    <div id={styles.cartSectionForMiniDisplay}>
                                           <a href="#">Cart(O)</a>
                                     </div>
-                                    <div id="headerButton">
+
+                                    <div id={styles.headerButton}>
                                           <button>Contact Us</button>
                                     </div>
 
-                                    <div id="menuForMiniDisplay">
-                                          <ButtonOfHeader />
+                                    <div id={styles.menuForMiniDisplay} onClick={toggleMiniMenu}>
+                                          <ButtonOfMiniNav />
                                     </div>
                               </div>
                         </header>
                   </div>
 
                   {isShown ? <Pages /> : null}
-                  <AnimatedRoutes />
+                  {isShownMiniMenu ? <MainOfMiniMenu /> : null}
 
+                  <AnimatedRoutes />
             </Router >
       )
 }

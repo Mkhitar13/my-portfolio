@@ -29,9 +29,11 @@ const Home = () => {
                               </div>
                         </div>
                   </div>
+                  {/* <div id="containerOfRightSectionOfHome"> */}
                   <div id="rightSectionOfHome">
                         <img src={imgforhome} alt="img" />
                   </div>
+                  {/* </div> */}
             </section >
       )
 }

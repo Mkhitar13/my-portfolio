@@ -19,8 +19,8 @@
                   display: grid;
                   grid-template-columns: repeat(2, 100%);
                   justify-content: center;
-                  align-items: center;
-                  align-content: center;
+                  align-items: end;
+                  align-content: end;
                   place-self: center;
                   cursor: pointer;
 
@@ -28,10 +28,14 @@
                         size: 100px;
                         display: grid;
                         justify-content: end;
+                        margin-right: 10px;
                   }
 
                   #textByIcon {
-                        width: 50px;
+                        display: grid;
+                        align-items: end;
+                        width: auto;
+                        height: auto;
                         font-size: 25px;
                         font-weight: 999;
                         color: white;
@@ -48,17 +52,17 @@
             nav {
                   display: grid;
                   grid-template-columns: repeat(6, 16%);
-                  grid-row: 1000px;
                   justify-content: space-between;
                   align-items: center;
                   width: 100%;
                   height: 70px;
                   color: white;
 
-                  #linkContainer {
+                  .linkContainer {
                         place-self: center;
 
                         a {
+                              transition: 1s;
                               text-decoration: none;
                               color: white;
                               font-family: sans-serif;
@@ -67,21 +71,27 @@
 
                   }
 
-                  #linkContainer:hover>#iconForPages {
-                        transform: rotate(750deg);
+                  #iconForPages {
+                        margin-left: 5px;
+                        transition: 1s;
+                  }
+
+                  .linkContainer:hover>#iconForPages {
+                        transform: rotate(45deg);
                         transition: 1s;
                         cursor: pointer;
                   }
 
-                  #linkContainer:hover {
+                  .linkContainer:hover {
                         a {
                               transition: 1s;
                               font-size: 19px;
-                              color: #2460AA;
+                              color: #2166FF;
                         }
                   }
 
-                  .pages {
+
+                  #pages {
                         display: grid;
                         gap: 2px;
                         grid-template-columns: repeat(2, auto);
@@ -94,11 +104,6 @@
 
                         }
                   }
-
-                  .pages:hover #containerPages {
-                        display: grid;
-                  }
-
             }
 
             #headerButtonAndMiniButtonOfMenuAndCartSection {
@@ -127,7 +132,7 @@
                               place-self: center;
                               align-content: center;
                               align-items: center;
-                              background-color: #2460AA;
+                              background-color: #2166FF;
                               color: white;
                               border: none;
                               cursor: pointer;
@@ -176,9 +181,9 @@
                               display: grid;
                         }
 
-                        // #headerButton {
-
-                        // }
+                        #pages {
+                              display: block;
+                        }
                   }
             }
       }

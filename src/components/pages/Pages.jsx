@@ -1,12 +1,12 @@
-import "../pages/pages.scss";
+import styles from "../pages/pages.module.scss";
 import {
       Link
 } from "react-router-dom";
 
 const Pages = () => {
       return (
-            <div id="containerPages">
-                  <div id="firstColumnOfPages">
+            <div id={styles.containerOfPages}>
+                  <div id={styles.firstColumnOfPages}>
                         <h2>Pages</h2>
                         <p>
                               <Link to="/Home">Home</Link>
@@ -14,17 +14,17 @@ const Pages = () => {
                               <Link to="/blog">Blog</Link>
                               <Link to="/pages">Pages</Link>
                               <Link to="/services">Services</Link>
-                              <Link href="">Case Studies</Link>
-                              <Link href="">Case StudySingle</Link>
-                              <Link href="">Blog Post</Link>
-                              <Link href="">Careers</Link>
-                              <Link href="">Careers Single</Link>
-                              <Link href="">Pricing</Link>
-                              <Link href="">Pricing Single</Link>
+                              <Link to="/Home">Case Studies</Link>
+                              <Link to="/Home">Case StudySingle</Link>
+                              <Link to="/Home">Blog Post</Link>
+                              <Link to="/Home">Careers</Link>
+                              <Link to="/Home">Careers Single</Link>
+                              <Link to="/Home">Pricing</Link>
+                              <Link to="/Home">Pricing Single</Link>
 
                         </p>
                   </div>
-                  <div id="secondColumnOfPages">
+                  <div id={styles.secondColumnOfPages}>
                         <h2>Utility pages</h2>
                         <p>
                               <Link to="/Home">Start Here</Link>
